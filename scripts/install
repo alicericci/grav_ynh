@@ -64,12 +64,11 @@ ynh_app_setting_set "$app" language  "$language"
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --time --weight=1
 
+# ynh_install_app_dependencies php7.0-zip
 
 ynh_print_info --message="Installing PHP..."
 
-
 ynh_install_php --phpversion="7.2" --package="$extra_pkg_dependencies"
-
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -102,6 +101,8 @@ ynh_system_user_create "$app"
 ynh_script_progression --message="Configuring php-fpm..." --time --weight=1
 
 # Create a dedicated php-fpm config
+# ynh_add_fpm_config
+
 ynh_replace_string --match_string="__USER__" --replace_string="$user" --target_file="../conf/php-fpm.conf"
 ynh_add_fpm_config --phpversion="7.2"
 
