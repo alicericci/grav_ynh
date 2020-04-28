@@ -96,7 +96,7 @@ ynh_install_app_dependencies php7.0-zip
 ynh_script_progression --message="Reloading nginx web server and php-fpm..." --time --weight=1
 
 # Reload services
-systemctl reload php7.0-fpm
+systemctl reload php7.2-fpm
 systemctl reload nginx
 
 
